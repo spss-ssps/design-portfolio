@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofia Pace — Design Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true">
+    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="12"></circle>
+    </svg>
+  </div>
+  <div class="starfield" id="starfield"></div>
+  <div class="orbit-layer" aria-hidden="true">
+    <div class="orbit orbit-1"></div>
+    <div class="orbit orbit-2"></div>
+    <div class="orbit orbit-3"></div>
+    <div class="planet planet-1"></div>
+    <div class="planet planet-2"></div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div id="crosshair">
+    <div class="h"></div>
+    <div class="v"></div>
+    <div class="coord mono"></div>
+  </div>
+
+  <nav>
+    <div class="brand" aria-label="Sofia Pace brand">
+      <svg class="brand-mark" width="44" height="44" viewBox="0 0 227 230" fill="none"
+        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M70.2676 163.985L98.6506 216.19C107.781 236.412 119.921 225.348 124.85 216.19L149.5 163.985C162.418 155.375 191.16 136.838 209.5 127.166C227.84 117.495 227.68 106 209.5 99.6901L149.5 69.4662L122.5 12.8651C112.893 -10.4348 102.471 3.15676 98.6506 12.865L70.2676 69.4662L13.5018 99.6901C-10.9512 110.681 3.31301 122.587 13.5018 127.166L70.2676 163.985Z"
+          fill="#D6DE78" />
+      </svg>
+      <span>Sofia Pace's Design Portfolio</span>
+    </div>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="canvas" id="canvas-area">
+    <div class="wrap hero">
+      <div class="hero-tag mono">Hi! I am...</div>
+      <h1>Sofia <span>Pace</span><br></h1>
+      <p class="hero-sub">A multidisciplinary artist with a passion for creating meaningful experiences in art
+        spacess.
+      </p>
+
+      <div class="hero-meta">
+        <div>Based in<span>New York, NY</span></div>
+        <div>Focus<span>Digital Communications · Multidisciplinary Design</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-label">Selected Projects</div>
+
+      <div class="project">
+        <div class="project-art">
+          <div class="fill">Wavelength</div>
+          <div class="art-corner tl"></div>
+          <div class="art-corner br"></div>
+          <div class="art-layer mono">Layer / Brand</div>
+        </div>
+        <div class="project-info">
+          <span class="layer-index mono">01 — Brand Identity</span>
+          <h3>Wavelength</h3>
+          <p>A full rebrand for an independent streaming platform — identity system, motion logo, and a typographic
+            language built to hold up across a thousand thumbnails.</p>
+          <div class="project-tags">
+            <span>Identity</span><span>Motion</span><span>Type System</span>
+          </div>
+          <button class="project-link" data-target="expand-1">
+            <span class="label">Read more</span><span class="arrow">→</span>
+          </button>
+        </div>
+        <div class="project-expand" id="expand-1">
+          <div class="project-expand-inner">
+            <div>
+              <h4>The Brief</h4>
+              <p>Wavelength needed a rebrand that could survive a thousand tiny thumbnails and still feel unmistakably
+                theirs on a billboard. The old mark was three years old and had never been drawn as a system — every
+                team was recreating it by eye.</p>
+              <h4>The Approach</h4>
+              <p>I built a modular wordmark that flexes across a proportional grid, paired with a motion signature
+                derived from actual audio waveforms, so the brand literally moves to the content it's sitting on.</p>
+            </div>
+            <div>
+              <h4>Details</h4>
+              <ul>
+                <li><span>Role</span><span>Lead Designer</span></li>
+                <li><span>Timeline</span><span>10 weeks</span></li>
+                <li><span>Deliverables</span><span>Identity, motion logo, guidelines</span></li>
+                <li><span>Year</span><span>2026</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-art">
+          <div class="fill">Terra</div>
+          <div class="art-corner tl"></div>
+          <div class="art-corner br"></div>
+          <div class="art-layer mono">Layer / Product</div>
+        </div>
+        <div class="project-info">
+          <span class="layer-index mono">02 — Product Design</span>
+          <h3>Terra</h3>
+          <p>End-to-end UX for a sustainable goods marketplace — research, IA, and a component system that shipped
+            across web and native without losing its voice.</p>
+          <div class="project-tags">
+            <span>UI/UX</span><span>Design System</span><span>Mobile</span>
+          </div>
+          <button class="project-link" data-target="expand-2">
+            <span class="label">Read more</span><span class="arrow">→</span>
+          </button>
+        </div>
+        <div class="project-expand" id="expand-2">
+          <div class="project-expand-inner">
+            <div>
+              <h4>The Brief</h4>
+              <p>Terra was scaling fast across web and native with two separate design languages fighting each other.
+                The team needed one system, one source of truth, and a UX that could hold hundreds of SKUs without
+                feeling like a spreadsheet.</p>
+              <h4>The Approach</h4>
+              <p>I ran discovery with the support and merchandising teams, restructured the IA around how people
+                actually shop sustainably, and shipped a component library that both platforms now build from
+                directly.
+              </p>
+            </div>
+            <div>
+              <h4>Details</h4>
+              <ul>
+                <li><span>Role</span><span>Product Designer</span></li>
+                <li><span>Timeline</span><span>4 months</span></li>
+                <li><span>Deliverables</span><span>Research, IA, design system</span></li>
+                <li><span>Year</span><span>2025</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+
+      <div class="project">
+        <div class="project-art">
+          <div class="fill">Nocturne</div>
+          <div class="art-corner tl"></div>
+          <div class="art-corner br"></div>
+          <div class="art-layer mono">Layer / Campaign</div>
+        </div>
+
+        <div class="project-info">
+          <span class="layer-index mono">03 — Visual + Motion</span>
+          <h3>Adjacent Issue 12: Archive </h3>
+          <p>Designed and Drafted 9 posts, one for each contributor in Adjacent’s Issue 12, and maintained a cohesive
+            brand identity throughout by consistently using a black-and-white color palette, while ensuring each
+            individual project remained the focal point of its respective post.</p>
+
+          <div class="project-tags">
+            <span>Graphic Design</span><span>Motion</span><span>Print</span>
+          </div>
+          <button class="project-link" data-target="expand-3">
+            <span class="label">Read more</span><span class="arrow">→</span>
+          </button>
+        </div>
+        <div class="project-expand" id="expand-3">
+          <div class="project-expand-inner">
+            <div>
+              <h4>The Brief</h4>
+              <p>Nocturne needed a visual language flexible enough to work across a touring poster series, a
+                projection
+                package, and social — without designing three separate campaigns from scratch each stop.</p>
+              <h4>The Approach</h4>
+              <p>I designed a generative poster system seeded by each city's own sound data, paired with a looping
+                projection piece that venues could run live behind the DJs each night.</p>
+            </div>
+            <div>
+              <h4>Details</h4>
+              <ul>
+                <li><span>Role</span><span>Social Media Desginer Lead</span></li>
+                <li><span>Timeline</span><span>4 weeks</span></li>
+                <li><span>Deliverables</span><span>Socials, Graphic Design</span></li>
+                <li><span>Year</span><span>2025</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="background:var(--paper-dim);">
+    <div class="wrap">
+      <div class="section-label">About</div>
+      <div class="about-grid">
+        <h2>I work across brand, product, and motion — <em>wherever the idea needs to live.</em></h2>
+        <div class="about-copy">
+          <p>Seven years designing for startups, studios, and the occasional band poster. I like projects that don't
+            sit
+            neatly in one discipline — a brand system that has to become a UI, or a UI that has to move.</p>
+          <p>Currently taking on a small number of freelance and consulting projects each quarter. If the brief is
+            specific and the timeline is real, let's talk.</p>
+          <div class="palette">
+            <span class="palette-label mono">Tools & Practice</span>
+            <div class="chips">
+              <span>Figma</span><span>Illustrator</span><span>Photoshop</span><span>After Effects</span>
+              <span>Framer</span><span>HTML/CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Would you like to connect? Contact me here:<br><a
+          href="mailto:hello@jordanvoss.com">sofiass.sspace@gmail.com</a></h2>
+      <div class="contact-row">
+        <div class="contact-links mono">
+          <a href="https://www.instagram.com/sofiasart.space/">Instagram</a>
+          <a href="https://www.linkedin.com/in/sofia-pace-108162231/">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <footer>
+        <span>© 2026 Sofia Pace</span>
+        <span>New York, NY</span>
+      </footer>
+    </div>
+  </section>
+
+  <script>
+
+    // Expand/collapse case study details inline
+    document.querySelectorAll('.project-link').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        const panel = document.getElementById(targetId);
+        const isOpen = panel.classList.contains('open');
+        panel.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+        btn.querySelector('.label').textContent = isOpen ? 'View case study' : 'Hide details';
+      });
+    });
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+      progressBar.style.width = scrolled + '%';
+    });
+
+    // Scroll reveal for project rows
+    const projects = document.querySelectorAll('.project');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    projects.forEach(p => io.observe(p));
+  </script>
+
+  <script src="starfield.js"></script>
+
+</body>
+
+</html>
