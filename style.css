@@ -97,7 +97,7 @@
 
     .twinkle {
         position: absolute;
-        background: rgba(10, 10, 10, 0.6);
+        background: rgba(10, 10, 10, 0.4);
         border-radius: 50%;
         animation: twinkle var(--dur, 3s) ease-in-out infinite;
         animation-delay: var(--del, 0s);
@@ -130,7 +130,7 @@
 
     .orbit {
         position: absolute;
-        border: 1px solid rgba(10, 10, 10, 0.12);
+        border: 1px solid rgba(10, 10, 10, 0.09);
         border-radius: 50%;
         transition: transform 0.35s ease-out;
     }
@@ -159,7 +159,7 @@
     .planet {
         position: absolute;
         border-radius: 50%;
-        background: rgba(214, 222, 120, 0.32);
+        background: rgba(214, 222, 120, 0.3);
         box-shadow: 0 0 18px rgba(214, 222, 120, 0.2);
         animation: planet-pulse 4s ease-in-out infinite;
         transition: transform 0.35s ease-out;
@@ -402,6 +402,43 @@
         margin-top: 6px;
     }
 
+    .scroll-cue {
+        position: absolute;
+        left: 50%;
+        bottom: 100px;
+        transform: translateX(-50%);
+        width: 22px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.8;
+    }
+
+    .scroll-cue span {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-right: 1.5px solid var(--ink);
+        border-bottom: 1.5px solid var(--ink);
+        transform: rotate(45deg) translateY(-1px);
+        animation: cue-bob 1.6s ease-in-out infinite;
+    }
+
+    @keyframes cue-bob {
+
+        0%,
+        100% {
+            transform: rotate(45deg) translateY(-1px);
+            opacity: 0.6;
+        }
+
+        50% {
+            transform: rotate(45deg) translateY(4px);
+            opacity: 1;
+        }
+    }
+
     /* ---------- SECTION LABEL ---------- */
     .section-label {
         display: flex;
@@ -482,7 +519,7 @@
 
     .textile-art {
         background: #f4efe7;
-        aspect-ratio: 3 / 4.15;
+        aspect-ratio: 3 / 4;
     }
 
     .project-art .fill {
@@ -499,29 +536,8 @@
         transition: transform 0.6s ease;
     }
 
-    .project-art:hover .fill {
+    .project-art:not(.has-gallery):hover .fill {
         transform: scale(1.05);
-    }
-
-    .art-corner {
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        opacity: 0.5;
-    }
-
-    .art-corner.tl {
-        top: 14px;
-        left: 14px;
-        border-top: 1px solid var(--paper);
-        border-left: 1px solid var(--paper);
-    }
-
-    .art-corner.br {
-        bottom: 14px;
-        right: 14px;
-        border-bottom: 1px solid var(--paper);
-        border-right: 1px solid var(--paper);
     }
 
     .art-layer {
@@ -533,6 +549,7 @@
         color: rgba(237, 233, 224, 0.6);
         text-transform: uppercase;
         letter-spacing: 0.06em;
+        mix-blend-mode: difference;
     }
 
     .project-info .layer-index {
@@ -598,10 +615,26 @@
         transition: color 0.2s, border-color 0.2s, gap 0.2s;
     }
 
+    .project-expand .project-link {
+        display: inline;
+        font-size: inherit;
+        text-transform: none;
+        letter-spacing: normal;
+        padding: 0;
+        border-bottom: 1px solid var(--ink);
+        color: var(--ink);
+        text-decoration: none;
+        font-style: italic;
+    }
+
     .project-link:hover {
         color: var(--highlight);
         border-color: var(--highlight);
         gap: 12px;
+    }
+
+    .project-expand .project-link:hover {
+        gap: 0;
     }
 
     .project-link .arrow {

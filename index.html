@@ -12,6 +12,7 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 
 <body>
@@ -59,13 +60,17 @@
     <div class="wrap hero">
       <div class="hero-tag mono">Hi! I am...</div>
       <h1>Sofia <span>Pace</span><br></h1>
-      <p class="hero-sub">A multidisciplinary artist with a passion for creating meaningful experiences in art
-        spacess.
+      <p class="hero-sub">A multidisciplinary artist and designer creating meaningful experiences through art, space,
+        and interaction.
       </p>
 
       <div class="hero-meta">
         <div>Based in<span>New York, NY</span></div>
         <div>Focus<span>Digital Communications · Multidisciplinary Design</span></div>
+      </div>
+
+      <div class="scroll-cue" aria-label="Scroll down">
+        <span></span>
       </div>
     </div>
   </div>
@@ -76,23 +81,32 @@
       <div class="section-label">Selected Projects</div>
 
       <!-- Project 1 -->
+
       <div class="project">
-        <div class="project-art">
-          <div class="fill">Adjacent issue 13: Contributor Q&A </div>
-          <div class="art-corner tl"></div>
-          <div class="art-corner br"></div>
-          <div class="art-layer mono">Layer / Brand</div>
+        <div class="project-art has-gallery" id="proj1-art">
+          <div class="gallery-frame">
+            <div class="gallery-slide active" id="proj1-slide"></div>
+            <button class="gallery-arrow prev" aria-label="Previous image">‹</button>
+            <button class="gallery-arrow next" aria-label="Next image">›</button>
+            <div class="art-layer mono" id="proj1-layer">Layer / Yi Chen</div>
+            <div class="gallery-dots" id="proj1-dots"></div>
+          </div>
+          <div class="gallery-tabs" id="proj1-tabs">
+            <button class="gallery-tab active" data-set="0">Yi Chen</button>
+            <button class="gallery-tab" data-set="1">UI</button>
+            <button class="gallery-tab" data-set="2">Motion</button>
+          </div>
         </div>
+
         <div class="project-info">
-          <span class="layer-index mono">01 — Brand Identity</span>
-          <h3>Adjacent issue 13: Contributor Q&A </h3>
-          <p>For this issue, the Q&A posts were designed and drafted to highlight each contributor's project, creative
-            process, and ideas.</p>
-          <p>To reflect the theme of ornament, each post incorporates bold colors, textured
-            typography, and layered backgrounds, emphasizing the individuality of each contributor's work. The layouts
-            were designed in Figma and exported as images for publication on Instagram.</p>
+          <span class="layer-index mono">01 — Visual + Motion</span>
+          <h3>Adjacent issue 13: Contributor Q&A</h3>
+          <p>Designed and Drafted 9 posts, one for each contributor in Adjacent’s Issue 12, and maintained a cohesive
+            brand identity throughout by consistently using a black-and-white color palette, while ensuring each
+            individual project remained the focal point of its respective post.</p>
+
           <div class="project-tags">
-            <span>Identity</span><span>Motion</span><span>Type System</span>
+            <span>Graphic Design</span><span>Motion</span><span>Print</span>
           </div>
           <button class="project-link" data-target="expand-1">
             <span class="label">Read more</span><span class="arrow">→</span>
@@ -101,7 +115,65 @@
         <div class="project-expand" id="expand-1">
           <div class="project-expand-inner">
             <div>
-              <h4>The Brief</h4>
+              <h4>Project Context</h4>
+              <p>Ornament exists where purpose becomes uncertain. It is decoration, embellishment, excess: the
+                supposedly superfluous made essential.</p>
+              <p><a class="project-link" href="https://itp.nyu.edu/adjacent/issues/#issue-13" target="_blank"
+                  rel="noopener noreferrer"><i>ADJACENT’s Issue 13</i></a> —NYU ITP/IMA’s emerging media
+                publication— explores the curiosity of this inner conflict within “ornament”, a tightly-wound paradox of
+                objects we simultaneously hold and dismiss. Ornaments are relational, their meaning comes alive through
+                context, but more specifically, culture. This issue foregrounds the ornament, and introduces the world
+                around them through literary, artistic, poetic, and technological perspectives.</p>
+              <h4>The Approach</h4>
+              <p>For this issue, a series of Q&A posts were designed to highlighting each contributor’s project,
+                creative
+                process, and ideas. To reflect the theme of ornament, each post uses bold colors, textured typography,
+                and layered backgrounds to create visually rich compositions while emphasizing the individuality of each
+                contributor’s work.
+              <p>The layouts were designed in Figma and exported as images for publication on Instagram, creating a
+                cohesive visual system across the series while allowing each contributor’s work to remain distinct.
+              </p>
+              </p>
+            </div>
+            <div>
+              <h4>Details</h4>
+              <ul>
+                <li><span>Role</span><span>Social Media Desginer Lead</span></li>
+                <li><span>Timeline</span><span>5 weeks</span></li>
+                <li><span>Deliverables</span><span>Socials, Graphic Design</span></li>
+                <li><span>Year</span><span>2025</span></li>
+                <li><span>Tools</span><span>Figma</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <div class="project-art">
+          <div class="fill">Adjacent Issue 12: Archive</div>
+        </div>
+
+        <div class="project-info">
+          <span class="layer-index mono">02 — Brand Identity</span>
+          <h3>Adjacent Issue 12: Archive</h3>
+          <p>For this issue, the Q&A posts were designed and drafted to highlight each contributor's project, creative
+            process, and ideas.</p>
+          <p>To reflect the theme of ornament, each post incorporates bold colors, textured
+            typography, and layered backgrounds, emphasizing the individuality of each contributor's work. The layouts
+            were designed in Figma and exported as images for publication on Instagram.</p>
+          <div class="project-tags">
+            <span>Identity</span><span>Motion</span><span>Type System</span>
+          </div>
+          <button class="project-link" data-target="expand-2">
+            <span class="label">Read more</span><span class="arrow">→</span>
+          </button>
+        </div>
+        <div class="project-expand" id="expand-2">
+          <div class="project-expand-inner">
+            <div>
+              <h4>Project Context</h4>
               <p>some text for the brief........</p>
 
               <h4>The Approach</h4>
@@ -113,52 +185,8 @@
                 <li><span>Role</span><span>Social Media sLead Designer</span></li>
                 <li><span>Timeline</span><span>6 weeks</span></li>
                 <li><span>Deliverables</span><span>social media content, graphic design</span></li>
+                <li><span>Tools</span><span>Figma, Illustrator</span></li>
                 <li><span>Year</span><span>2026</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-
-      <div class="project">
-        <div class="project-art">
-          <div class="fill">Adjacent Issue 12: Archive</div>
-          <div class="art-corner tl"></div>
-          <div class="art-corner br"></div>
-          <div class="art-layer mono">Layer / Campaign</div>
-        </div>
-
-        <div class="project-info">
-          <span class="layer-index mono">03 — Visual + Motion</span>
-          <h3>Adjacent Issue 12: Archive </h3>
-          <p>Designed and Drafted 9 posts, one for each contributor in Adjacent’s Issue 12, and maintained a cohesive
-            brand identity throughout by consistently using a black-and-white color palette, while ensuring each
-            individual project remained the focal point of its respective post.</p>
-
-          <div class="project-tags">
-            <span>Graphic Design</span><span>Motion</span><span>Print</span>
-          </div>
-          <button class="project-link" data-target="expand-3">
-            <span class="label">Read more</span><span class="arrow">→</span>
-          </button>
-        </div>
-        <div class="project-expand" id="expand-3">
-          <div class="project-expand-inner">
-            <div>
-              <h4>The Brief</h4>
-              <p>some text for the brief......../p>
-              <h4>The Approach</h4>
-              <p>some text for the approach........</p>
-            </div>
-            <div>
-              <h4>Details</h4>
-              <ul>
-                <li><span>Role</span><span>Social Media Desginer Lead</span></li>
-                <li><span>Timeline</span><span>5 weeks</span></li>
-                <li><span>Deliverables</span><span>Socials, Graphic Design</span></li>
-                <li><span>Year</span><span>2025</span></li>
               </ul>
             </div>
           </div>
@@ -171,24 +199,27 @@
           <iframe src="https://spss-ssps.github.io/zinedigital/" title="Body as Textile — zine" loading="lazy"></iframe>
         </div>
         <div class="project-info">
-          <span class="layer-index mono">02 — Print Design</span>
+          <span class="layer-index mono">03 — Print Design</span>
           <h3>Body as Textile Zine</h3>
-          <p>End-to-end UX for a sustainable goods marketplace — research, IA, and a component system that shipped
-            across web and native without losing its voice.</p>
+          <p>A conceptual zine that uses textile-inspired design to help participants explore movement, space, and the
+            connections between bodies and textiles.</p>
           <div class="project-tags">
-            <span>UI/UX</span><span>Design System</span><span>Mobile</span>
+            <span>Graphic Design</span><span>Illustration</span><span>Print</span>
           </div>
-          <button class="project-link" data-target="expand-2">
+          <button class="project-link" data-target="expand-3">
             <span class="label">Read more</span><span class="arrow">→</span>
           </button>
         </div>
-        <div class="project-expand" id="expand-2">
+        <div class="project-expand" id="expand-3">
           <div class="project-expand-inner">
             <div>
-              <h4>The Brief</h4>
-              <p>Body as Textile is web and installation project explores textile as hypertext extending beyond thread
-                and fabric,
-                weaving information through bodies, spaces, and histories.</p>
+              <h4>Project Context</h4>
+              <p><a class="project-link" href="https://dance-textile.onrender.com/" target="_blank"
+                  rel="noopener noreferrer"><i>Body as
+                    Textile</i></a> is a web and installation project that
+                explores textile as a form of hypertext,
+                extending beyond thread and fabric to consider how information can be woven through bodies, spaces, and
+                histories.</p>
 
               <p>By expanding ideas on human kinesthetics and exploring the potential for unconventional archival
                 mediums,
@@ -196,9 +227,19 @@
                 it—ultimately revealing how even the clothing we wear may serve as carriers of information.</p>
 
               <h4>The Approach</h4>
-              <p>The project's zine was designed and created featuring our project description, concept, and statement.
-                As an added element, embroidery kits were provided for visitors to take home, allowing them to recreate
-                their movement patterns in physical form.
+              <p>The project's zine was created as a conceptual resource for participants. It introduces the project's
+                description, concepts, and participatory guide. Its visual language draws from textile and
+                textile-adjacent elements, incorporating fabric textures, embroidery-inspired typography, and hand-drawn
+                illustrations of needles and thread. These elements guide participants through the zine while visually
+                connecting its ideas and concepts.
+              </p>
+              <p>A sample image of the web experience is featured on the title page, establishing a connection between
+                the digital and physical components of the project. Overall, the design seeks to materialize how kinetic
+                elements can manifest within space and create connections between bodies, movement, and ideas, making
+                these relationships more tangible and accessible.</p>
+
+              <p>Embroidery kits were provided alongside the zine for visitors to take home, allowing them to translate
+                their movement patterns into physical form and recreate their movements through thread.
               </p>
             </div>
             <div>
@@ -206,7 +247,8 @@
               <ul>
                 <li><span>Role</span><span>Co-creator & Designer</span></li>
                 <li><span>Timeline</span><span>1 months</span></li>
-                <li><span>Deliverables</span><span>Graphic Design, Printable Materials</span></li>
+                <li><span>Deliverables</span><span>Graphic Design, Printable Material</span></li>
+                <li><span>Tools</span><span>Figma, Procreate, HTML/CSS</span></li>
                 <li><span>Year</span><span>2025</span></li>
               </ul>
             </div>
@@ -227,8 +269,8 @@
           <div class="palette">
             <span class="palette-label mono">Tools & Practice</span>
             <div class="chips">
-              <span>Figma</span><span>Illustrator</span><span>Photoshop</span><span>After Effects</span>
-              <span>Framer</span><span>HTML/CSS</span>
+              <span>Figma</span><span>Illustrator</span><span>Photoshop</span><span>After
+                Effects</span><span>HTML/CSS</span>
             </div>
           </div>
         </div>
@@ -260,7 +302,7 @@
   <script>
 
     // Expand/collapse case study details inline
-    document.querySelectorAll('.project-link').forEach(btn => {
+    document.querySelectorAll('.project-link[data-target]').forEach(btn => {
       btn.addEventListener('click', () => {
         const targetId = btn.getAttribute('data-target');
         const panel = document.getElementById(targetId);
