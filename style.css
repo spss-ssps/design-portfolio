@@ -735,7 +735,6 @@
     }
 
     .contact h2 a {
-        border-bottom: 2px solid var(--line);
         transition: border-color 0.2s, color 0.2s;
     }
 
