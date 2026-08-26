@@ -269,7 +269,7 @@
         align-items: center;
         padding: 22px 40px;
         color: var(--ink);
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(4px);
     }
 
     nav .brand {
