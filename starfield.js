@@ -86,21 +86,23 @@ const gallerySets = [
 
 const project2Sets = [
     {
-        name: 'Isa Sabraw', slides: [
-            'src/Issue%2013/IsaSabraw/IsaSabraw1.jpg',
-            'src/Issue%2013/IsaSabraw/IsaSabraw2.jpg'
+        name: 'At The End', slides: [
+            'src/Issue%2012/atTheEnd.jpg'
         ]
     },
     {
         name: 'Isa Sabraw', slides: [
-            'src/Issue%2013/IsaSabraw/IsaSabraw3.jpg',
-            'src/Issue%2013/IsaSabraw/IsaSabraw4.jpg'
+            'src/Issue%2012/BeingWithoutBrains.jpg',
         ]
     },
     {
         name: 'Isa Sabraw', slides: [
-            'src/Issue%2013/IsaSabraw/IsaSabraw5.jpg',
-            'src/Issue%2013/IsaSabraw/IsaSabraw6.jpg'
+            'src/Issue%2012/EatingSpring.jpg',
+        ]
+    },
+    {
+        name: 'MIZU', slides: [
+            'src/Issue%2012/MIZU.jpg',
         ]
     }
 ];
