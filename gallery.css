@@ -43,6 +43,22 @@
     }
 }
 
+@media (max-width: 980px) {
+    .project.gallery-right {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .project.gallery-right .project-art,
+    .project.gallery-right .project-info {
+        order: initial;
+    }
+
+    .textile-art {
+        aspect-ratio: 3 / 4;
+    }
+}
+
 .gallery-slide {
     position: absolute;
     inset: 0;

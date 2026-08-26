@@ -713,7 +713,7 @@
     }
 
     .project-expand.open {
-        max-height: 600px;
+        max-height: 900px;
         opacity: 1;
         margin-top: 36px;
     }
@@ -755,13 +755,6 @@
 
     .project-expand-inner ul li span:last-child {
         color: var(--ink);
-    }
-
-    @media (max-width: 860px) {
-        .project-expand-inner {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
     }
 
     /* ---------- ABOUT ---------- */
@@ -1010,8 +1003,9 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.6rem, 18vw, 4.4rem);
+            font-size: clamp(2.6rem, 18vw, 4rem);
             max-width: 9ch;
+            white-space: nowrap;
         }
 
         .hero-sub {
@@ -1051,7 +1045,7 @@
         }
 
         .about-grid h2 object {
-            width: min(100%, 180px);
+            width: min(100%, 400px);
         }
 
         .project-info p,
@@ -1071,7 +1065,7 @@
         }
 
         .contact h2 {
-            font-size: clamp(2.3rem, 12vw, 4rem);
+            font-size: clamp(1.2rem, 12vw, 1.7rem);
         }
 
         .contact-links {
