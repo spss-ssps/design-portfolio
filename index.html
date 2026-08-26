@@ -134,7 +134,7 @@
               </p>
               </p>
             </div>
-            <div>
+            <div class="project-details">
               <h4>Details</h4>
               <ul>
                 <li><span>Role</span><span>Social Media Desginer Lead</span></li>
@@ -197,11 +197,11 @@
                 identity. Each post translated these existing visual elements into an Instagram format while maintaining
                 the individuality and focus of each contributor’s project.</p>
             </div>
-            <div>
+            <div class="project-details">
               <h4>Details</h4>
               <ul>
                 <li><span>Role</span><span>Social Media Lead Designer</span></li>
-                <li><span>Deliverables</span><span>social media content, graphic design</span></li>
+                <li><span>Deliverables</span><span>Social Media Content, Graphic Design</span></li>
                 <li><span>Tools</span><span>Figma, Illustrator</span></li>
                 <li><span>Year</span><span>2026</span></li>
               </ul>
@@ -259,7 +259,7 @@
                 their movement patterns into physical form and recreate their movements through thread.
               </p>
             </div>
-            <div>
+            <div class="project-details">
               <h4>Details</h4>
               <ul>
                 <li><span>Role</span><span>Co-creator & Designer</span></li>
@@ -328,7 +328,7 @@
         const isOpen = panel.classList.contains('open');
         panel.classList.toggle('open', !isOpen);
         btn.classList.toggle('open', !isOpen);
-        btn.querySelector('.label').textContent = isOpen ? 'View case study' : 'Hide details';
+        btn.querySelector('.label').textContent = isOpen ? 'Read more' : 'Hide details';
 
         if (!isOpen) {
           panel.scrollIntoView({ behavior: 'smooth', block: 'start' });

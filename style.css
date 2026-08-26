@@ -956,6 +956,19 @@
             order: initial;
         }
 
+        .project-expand-inner {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .project-expand-inner ul li {
+            font-size: 0.78rem;
+        }
+
+        .project-expand.open {
+            max-height: 1200px;
+        }
+
         .about-grid {
             grid-template-columns: 1fr;
             gap: 40px;
@@ -1051,9 +1064,12 @@
 
         .project-info p,
         .about-copy p,
-        .project-expand-inner p,
-        .project-expand-inner li {
+        .project-expand-inner p {
             font-size: 0.82rem;
+        }
+
+        .project-expand-inner ul li {
+            font-size: 0.74rem;
         }
 
         .project-tags {
