@@ -2,15 +2,29 @@
 
     :root {
         --paper: #FFFFFF;
-        --paper-dim: rgba(214, 222, 120, 0.2);
+        --paper-dim: #e7eac2;
         --ink: #0A0A0A;
         --ink-soft: #6B6B6B;
         --signal: #0A0A0A;
-        --accent: #D6DE78;
         --highlight: #D6DE78;
         --line: rgba(10, 10, 10, 0.16);
         --line-soft: rgba(10, 10, 10, 0.08);
+        --about: #9d8fd0;
     }
+
+    /* blinking animation */
+    @keyframes blink-smooth {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+    }
+
 
     * {
         margin: 0;
@@ -130,9 +144,33 @@
 
     .orbit {
         position: absolute;
-        border: 1px solid rgba(10, 10, 10, 0.09);
+        --orbit-color: rgba(10, 10, 10, 0.09);
+        border: 1px solid var(--orbit-color);
         border-radius: 50%;
         transition: transform 0.35s ease-out;
+    }
+
+    .orbit::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--orbit-color);
+        transform-origin: 0 0;
+        animation: orbit-spin var(--orbit-duration) linear infinite;
+    }
+
+    @keyframes orbit-spin {
+        from {
+            transform: rotate(0deg) translateX(var(--orbit-radius));
+        }
+
+        to {
+            transform: rotate(360deg) translateX(var(--orbit-radius));
+        }
     }
 
     .orbit-1 {
@@ -140,6 +178,8 @@
         height: 560px;
         right: -120px;
         top: 90px;
+        --orbit-radius: calc(280px - 4.5px);
+        --orbit-duration: 18s;
     }
 
     .orbit-2 {
@@ -147,6 +187,8 @@
         height: 760px;
         left: -220px;
         bottom: -140px;
+        --orbit-radius: calc(380px - 4.5px);
+        --orbit-duration: 24s;
     }
 
     .orbit-3 {
@@ -154,6 +196,8 @@
         height: 380px;
         right: 12%;
         bottom: 10%;
+        --orbit-radius: calc(190px - 4.5px);
+        --orbit-duration: 14s;
     }
 
     .planet {
@@ -191,7 +235,7 @@
         height: 14px;
         left: 16%;
         bottom: 28%;
-        background: rgba(10, 10, 10, 0.2);
+        background: rgba(157, 143, 208, 0.2);
         box-shadow: 0 0 12px rgba(10, 10, 10, 0.08);
         animation-delay: 0.8s;
     }
@@ -298,6 +342,10 @@
         width: 100%;
     }
 
+    nav ul li a[href="#about"]:hover::after {
+        background: var(--about);
+    }
+
     .scroll-progress {
         position: fixed;
         top: 0;
@@ -323,7 +371,7 @@
 
     .hero-tag {
         font-family: 'Space Mono', monospace;
-        font-size: 0.78rem;
+        font-size: 0.84rem;
         text-transform: uppercase;
         letter-spacing: 0.1em;
         color: var(--signal);
@@ -337,16 +385,17 @@
         content: '';
         width: 7px;
         height: 7px;
-        background: var(--highlight);
+        background: var(--about);
         border-radius: 50%;
         display: inline-block;
+        animation: blink-smooth 1.5s linear infinite;
     }
 
 
     .hero h1 {
         font-family: 'Comfortaa', sans-serif;
         font-weight: 600;
-        font-size: clamp(3.2rem, 9vw, 8.4rem);
+        font-size: clamp(4rem, 9vw, 8.4rem);
         line-height: 0.94;
         letter-spacing: -0.03em;
         max-width: 16ch;
@@ -361,9 +410,8 @@
     }
 
     .hero h1 span:hover {
-        font-style: italic;
         font-weight: 900;
-        color: #9d8fd0;
+        color: var(--about);
         transform: translateY(-2px);
         text-shadow: 0 10px 24px rgba(10, 10, 10, 0.08);
     }
@@ -452,6 +500,17 @@
         margin-bottom: 48px;
     }
 
+    .section-label::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background: var(--highlight);
+        border-radius: 50%;
+        display: inline-block;
+        animation: blink-smooth 1.5s linear infinite;
+    }
+
+
     .section-label::after {
         content: '';
         flex: 1;
@@ -461,10 +520,6 @@
 
     section {
         padding: 120px 0;
-    }
-
-    section.tight {
-        padding-top: 0;
     }
 
     /* ---------- WORK ---------- */
@@ -649,6 +704,7 @@
     .project-expand {
         grid-column: 1 / -1;
         order: 3;
+        scroll-margin-top: 90px;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
@@ -709,24 +765,39 @@
     }
 
     /* ---------- ABOUT ---------- */
+
     .about-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 80px;
     }
 
-    .about-grid h2 {
-        font-family: 'Comfortaa', sans-serif;
-        font-weight: 600;
-        font-size: clamp(2.2rem, 4vw, 3.2rem);
-        line-height: 1.15;
-        letter-spacing: -0.03em;
+    #about .section-label::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        flex-shrink: 0;
+        background: var(--about);
+        border-radius: 50%;
+        animation: blink-smooth 1.5s linear infinite;
     }
 
-    .about-grid h2 em {
-        font-style: italic;
-        color: var(--ink);
-        font-weight: 900;
+
+    #about .section-label::after {
+        background: var(--ink-soft);
+    }
+
+    .about-grid h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+    }
+
+    .about-grid h2 object {
+        display: block;
+        width: min(100%, 600px);
+        height: auto;
     }
 
     .about-copy p {
@@ -760,9 +831,16 @@
         font-family: 'Space Mono', monospace;
         font-size: 0.75rem;
         padding: 8px 14px;
-        background: var(--paper-dim);
+        background: var(--paper);
         border: 1px solid var(--line);
         border-radius: 2px;
+        transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .chips span:hover {
+        background: var(--about);
+        border-color: var(--about);
+        color: var(--ink);
     }
 
     /* ---------- CONTACT ---------- */
@@ -789,6 +867,29 @@
         color: var(--highlight);
     }
 
+    .contact-tag {
+        font-family: 'Space Mono', monospace;
+        font-size: 0.84rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--signal);
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contact-tag::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        background: var(--highlight);
+        border-radius: 50%;
+        display: inline-block;
+        animation: blink-smooth 1.5s linear infinite;
+    }
+
+
     .contact-row {
         margin-top: 56px;
         display: flex;
@@ -813,7 +914,9 @@
     }
 
     .contact-links a:hover {
-        color: var(--signal);
+        background: var(--about);
+        border-color: var(--about);
+        color: var(--paper);
     }
 
     footer {
@@ -945,6 +1048,10 @@
 
         .project-info h3 {
             font-size: clamp(1.8rem, 9vw, 2.6rem);
+        }
+
+        .about-grid h2 object {
+            width: min(100%, 180px);
         }
 
         .project-info p,

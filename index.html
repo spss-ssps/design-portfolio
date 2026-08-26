@@ -56,7 +56,7 @@
   </nav>
 
   <!-- HERO -->
-  <div class="canvas" id="canvas-area">
+  <div class="canvas">
     <div class="wrap hero">
       <div class="hero-tag mono">Hi! I am...</div>
       <h1>Sofia <span>Pace</span><br></h1>
@@ -83,7 +83,7 @@
       <!-- Project 1 -->
 
       <div class="project">
-        <div class="project-art has-gallery" id="proj1-art">
+        <div class="project-art has-gallery">
           <div class="gallery-frame">
             <div class="gallery-slide"></div>
             <button class="gallery-arrow prev" aria-label="Previous image">‹</button>
@@ -148,7 +148,7 @@
       </div>
 
       <!-- Project 2 -->
-      <div class="project">
+      <div class="project gallery-right">
         <div class="project-art has-gallery">
           <div class="gallery-frame">
             <div class="gallery-slide"></div>
@@ -165,7 +165,7 @@
         </div>
 
         <div class="project-info">
-          <span class="layer-index mono">02 — Brand Identity</span>
+          <span class="layer-index mono">02 — Archive + Identity</span>
           <h3>Adjacent Issue 12: Archive</h3>
           <p>For this issue, the Q&A posts were designed and drafted to highlight each contributor's project, creative
             process, and ideas.</p>
@@ -266,16 +266,16 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" style="background:var(--paper-dim);">
+  <section id="about" style="background:var(--paper);">
     <div class="wrap">
-      <div class="section-label">About</div>
+      <div class="section-label">About Me</div>
       <div class="about-grid">
-        <h2>My work is drawn to design that is subtly bold.</em></h2>
+        <h2><object data="src/constallationDesign.svg" type="image/svg+xml" aria-label="constellation"></object></h2>
         <div class="about-copy">
-          <p>I am a Latin American artist and designer working at the intersection of performance, new media, and visual
-            communication. My practice is rooted in strong typographic and compositional decisions, while embracing
-            flowing, abstract, and soft forms — an approach shaped by my background as a maker, a performer, and someone
-            deeply invested in culture and community.</p>
+          <p>I am a designer and artist working at the intersection of performance, new media, and visual communication.
+            My work is drawn to design that is subtly bold — rooted in strong typographic and compositional decisions,
+            while embracing flowing, abstract, and soft forms. My design approach is shaped by my background as a maker,
+            a performer, and someone deeply invested in culture and community.</p>
           <div class="palette">
             <span class="palette-label mono">Tools & Practice</span>
             <div class="chips">
@@ -291,7 +291,7 @@
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <div class="wrap">
-      <div class="hero-tag mono">Would you like to connect? Contact me here:</div>
+      <div class="contact-tag">Would you like to connect? Contact me here:</div>
       <h2><a href="mailto:hello@jordanvoss.com">sofiass.sspace@gmail.com</a></h2>
       <div class="contact-row">
         <div class="contact-links mono">
@@ -320,6 +320,10 @@
         panel.classList.toggle('open', !isOpen);
         btn.classList.toggle('open', !isOpen);
         btn.querySelector('.label').textContent = isOpen ? 'View case study' : 'Hide details';
+
+        if (!isOpen) {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
 

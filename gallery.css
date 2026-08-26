@@ -7,12 +7,40 @@
     overflow: visible;
 }
 
+.project.gallery-right {
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+.project.gallery-right .project-art {
+    order: 2;
+}
+
+.project.gallery-right .project-info {
+    order: 1;
+}
+
 .gallery-frame {
     position: relative;
     aspect-ratio: 3/4;
+    width: 100%;
     background: transparent;
     overflow: hidden;
     border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+    .project.gallery-right {
+        grid-template-columns: 1fr;
+    }
+
+    .project.gallery-right .project-art,
+    .project.gallery-right .project-info {
+        order: initial;
+    }
+
+    .project-art.has-gallery {
+        aspect-ratio: 3 / 4;
+    }
 }
 
 .gallery-slide {
