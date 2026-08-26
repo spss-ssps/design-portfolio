@@ -49,10 +49,10 @@ hoverTargets.forEach((target) => {
     target.addEventListener('pointerleave', () => cursorRing.classList.remove('is-hovering'));
 });
 
-//Projecy Gallery
-const proj1Galleries = [
+// Gallery
+const gallerySets = [
     {
-        name: 'Yi Chen', layer: 'Yi Chen', slides: [
+        name: 'Yi Chen', slides: [
             'src/Issue%2013/Yi%20Chen/Yi%20Chen1.jpeg',
             'src/Issue%2013/Yi%20Chen/Yi%20Chen2.jpeg',
             'src/Issue%2013/Yi%20Chen/Yi%20Chen3.jpeg',
@@ -63,85 +63,123 @@ const proj1Galleries = [
         ]
     },
     {
-        name: 'UI', layer: 'Product', slides: [
-            'src/Issue%2013/Yi%20Chen/Yi%20Chen4.jpeg',
-            'src/Issue%2013/Yi%20Chen/Yi%20Chen5.jpeg',
-            'src/Issue%2013/Yi%20Chen/Yi%20Chen6.jpeg'
+        name: 'YeonsooLee', slides: [
+            'src/Issue%2013/YeonsooLee/YeonsooLee1.jpg',
+            'src/Issue%2013/YeonsooLee/YeonsooLee2.jpg',
+            'src/Issue%2013/YeonsooLee/YeonsooLee3.jpg',
+            'src/Issue%2013/YeonsooLee/YeonsooLee4.jpg',
+            'src/Issue%2013/YeonsooLee/YeonsooLee5.jpg',
+            'src/Issue%2013/YeonsooLee/YeonsooLee6.jpg'
         ]
     },
     {
-        name: 'Motion', layer: 'Motion', slides: [
-            'src/Issue%2013/Yi%20Chen/Yi%20Chen1.jpeg',
-            'src/Issue%2013/Yi%20Chen/Yi%20Chen2.jpeg',
-            'src/Issue%2013/Yi%20Chen/Yi%20Chen3.jpeg'
+        name: 'Motion', slides: [
+            'src/Issue%2013/IsaSabraw/IsaSabraw1.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw2.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw3.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw4.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw5.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw6.jpg'
         ]
     }
 ];
 
-let proj1State = { set: 0, slide: 0 };
+const project2Sets = [
+    {
+        name: 'Isa Sabraw', slides: [
+            'src/Issue%2013/IsaSabraw/IsaSabraw1.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw2.jpg'
+        ]
+    },
+    {
+        name: 'Isa Sabraw', slides: [
+            'src/Issue%2013/IsaSabraw/IsaSabraw3.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw4.jpg'
+        ]
+    },
+    {
+        name: 'Isa Sabraw', slides: [
+            'src/Issue%2013/IsaSabraw/IsaSabraw5.jpg',
+            'src/Issue%2013/IsaSabraw/IsaSabraw6.jpg'
+        ]
+    }
+];
 
-function renderProj1(direction = 1) {
-    const g = proj1Galleries[proj1State.set];
-    const slideEl = document.getElementById('proj1-slide');
-    const outgoingClass = direction > 0 ? 'slide-out-left' : 'slide-out-right';
-    const incomingClass = direction > 0 ? 'slide-in-right' : 'slide-in-left';
+function setupGallery(gallery, sets) {
+    const slide = gallery.querySelector('.gallery-slide');
+    const dots = gallery.querySelector('.gallery-dots');
+    const tabs = gallery.querySelectorAll('.gallery-tab');
+    const previous = gallery.querySelector('.gallery-arrow.prev');
+    const next = gallery.querySelector('.gallery-arrow.next');
+    const state = { set: 0, slide: 0 };
 
-    slideEl.classList.add(outgoingClass);
-    setTimeout(() => {
-        slideEl.style.transition = 'none';
-        slideEl.classList.remove(outgoingClass);
-        slideEl.classList.add(incomingClass);
-        slideEl.replaceChildren();
+    function render() {
+        const set = sets[state.set];
+        let track = slide.firstElementChild;
 
-        const image = document.createElement('img');
-        image.src = g.slides[proj1State.slide];
-        image.alt = `${g.name} project image ${proj1State.slide + 1}`;
-        slideEl.appendChild(image);
+        if (!track || track.dataset.set !== String(state.set)) {
+            track = document.createElement('div');
+            track.className = 'gallery-track';
+            track.dataset.set = state.set;
+            set.slides.forEach((src, index) => {
+                const image = document.createElement('img');
+                image.src = src;
+                image.alt = `${set.name} project image ${index + 1}`;
+                track.appendChild(image);
+            });
+            slide.replaceChildren(track);
+        }
 
-        slideEl.offsetWidth;
-        slideEl.style.transition = '';
-        slideEl.classList.remove(incomingClass);
-    }, 350);
-
-    document.getElementById('proj1-layer').textContent = 'Layer / ' + g.layer;
-
-    const dotsWrap = document.getElementById('proj1-dots');
-    dotsWrap.innerHTML = '';
-    g.slides.forEach((_, i) => {
-        const dot = document.createElement('button');
-        dot.className = 'gallery-dot' + (i === proj1State.slide ? ' active' : '');
-        dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
-        if (i === proj1State.slide) dot.setAttribute('aria-current', 'true');
-        dot.addEventListener('click', () => {
-            const direction = i >= proj1State.slide ? 1 : -1;
-            proj1State.slide = i;
-            renderProj1(direction);
+        track.style.transform = `translateX(-${state.slide * 100}%)`;
+        dots.replaceChildren();
+        set.slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            const isActive = index === state.slide;
+            dot.className = 'gallery-dot' + (isActive ? ' active' : '');
+            dot.type = 'button';
+            dot.setAttribute('aria-label', `Go to image ${index + 1}`);
+            dot.setAttribute('aria-current', String(isActive));
+            dot.addEventListener('click', () => {
+                state.slide = index;
+                render();
+            });
+            dots.appendChild(dot);
         });
-        dotsWrap.appendChild(dot);
+
+        previous.disabled = state.slide === 0;
+        next.disabled = state.slide === set.slides.length - 1;
+        tabs.forEach((tab, index) => {
+            const isActive = index === state.set;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-pressed', String(isActive));
+        });
+    }
+
+    tabs.forEach((tab) => {
+        tab.type = 'button';
+        tab.addEventListener('click', () => {
+            state.set = Number(tab.dataset.set);
+            state.slide = 0;
+            render();
+        });
     });
 
-    document.querySelectorAll('#proj1-tabs .gallery-tab').forEach((btn, i) => {
-        btn.classList.toggle('active', i === proj1State.set);
+    previous.addEventListener('click', () => {
+        if (state.slide > 0) {
+            state.slide -= 1;
+            render();
+        }
     });
+
+    next.addEventListener('click', () => {
+        if (state.slide < sets[state.set].slides.length - 1) {
+            state.slide += 1;
+            render();
+        }
+    });
+
+    render();
 }
 
-document.querySelectorAll('#proj1-tabs .gallery-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-        proj1State.set = parseInt(btn.dataset.set, 10);
-        proj1State.slide = 0;
-        renderProj1(1);
-    });
-});
-
-document.querySelector('#proj1-art .gallery-arrow.prev').addEventListener('click', () => {
-    const len = proj1Galleries[proj1State.set].slides.length;
-    proj1State.slide = (proj1State.slide - 1 + len) % len;
-    renderProj1(-1);
-});
-document.querySelector('#proj1-art .gallery-arrow.next').addEventListener('click', () => {
-    const len = proj1Galleries[proj1State.set].slides.length;
-    proj1State.slide = (proj1State.slide + 1) % len;
-    renderProj1(1);
-});
-
-renderProj1();
+setupGallery(document.querySelectorAll('.has-gallery')[0], gallerySets);
+setupGallery(document.querySelectorAll('.has-gallery')[1], project2Sets);
